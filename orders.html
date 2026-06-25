@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>배통 - 주문관리</title>
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { font-family: '맑은고딕', 'Malgun Gothic', sans-serif; background: #f8f8f8; min-height: 100vh; }
+
+nav {
+  background: white; border-bottom: 1px solid #eee;
+  padding: 0 40px; display: flex; align-items: center; height: 60px;
+}
+.nav_logo {
+  font-size: 22px; font-weight: bold;
+  background: linear-gradient(90deg, #f97316, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-right: 30px; text-decoration: none;
+}
+.nav_menu { display: flex; gap: 8px; flex: 1; }
+.nav_menu a {
+  padding: 8px 18px; border-radius: 20px; font-size: 14px;
+  text-decoration: none; color: #555;
+}
+.nav_menu a:hover { background: #f5f5f5; }
+.nav_menu a.active { background: #f0f0f0; font-weight: bold; color: #222; }
+.nav_store {
+  font-size: 14px; color: #555; padding: 8px 16px;
+  border: 1px solid #ddd; border-radius: 20px; text-decoration: none;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+main h1 { font-size: 24px; font-weight: bold; color: #222; margin-bottom: 8px; }
+main p { font-size: 13px; color: #888; margin-bottom: 28px; }
+
+.order_table {
+  background: white; border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: #fafafa; border-bottom: 1px solid #eee; }
+thead th { padding: 14px 20px; text-align: left; font-size: 13px; color: #888; font-weight: normal; }
+tbody tr { border-bottom: 1px solid #f5f5f5; }
+tbody tr:last-child { border-bottom: none; }
+tbody td { padding: 16px 20px; font-size: 14px; color: #333; }
+
+.badge_baemin { background: #2bbfbf; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+.badge_coupang { background: #8b5cf6; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+.badge_yogiyo { background: #f43f5e; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+
+.status_done { background: #e8faf0; color: #16a34a; font-size: 12px; padding: 4px 12px; border-radius: 10px; }
+.status_cooking { background: #fff7ed; color: #f97316; font-size: 12px; padding: 4px 12px; border-radius: 10px; }
+.status_new { background: #fef2f2; color: #f43f5e; font-size: 12px; padding: 4px 12px; border-radius: 10px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav_logo" href="login.html">배통</a>
+  <div class="nav_menu">
+    <a href="main.html">공지사항</a>
+    <a href="orders.html" class="active">주문관리</a>
+    <a href="menu.html">메뉴</a>
+    <a href="stats.html">통계</a>
+  </div>
+  <a class="nav_store" href="#">맛있는 치킨집</a>
+</nav>
+
+<main>
+  <h1>주문 관리</h1>
+  <p>오늘 들어온 주문을 확인하세요</p>
+
+  <div class="order_table">
+    <table>
+      <thead>
+        <tr>
+          <th>주문번호</th>
+          <th>플랫폼</th>
+          <th>메뉴</th>
+          <th>금액</th>
+          <th>시간</th>
+          <th>상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#20260623-001</td>
+          <td><span class="badge_baemin">배민</span></td>
+          <td>후라이드 치킨 1개</td>
+          <td>17,000원</td>
+          <td>10:02</td>
+          <td><span class="status_new">신규</span></td>
+        </tr>
+        <tr>
+          <td>#20260623-002</td>
+          <td><span class="badge_coupang">쿠팡</span></td>
+          <td>양념 치킨 1개, 치즈볼 1개</td>
+          <td>23,000원</td>
+          <td>09:45</td>
+          <td><span class="status_cooking">조리중</span></td>
+        </tr>
+        <tr>
+          <td>#20260623-003</td>
+          <td><span class="badge_yogiyo">요기요</span></td>
+          <td>반반 치킨 1개, 콜라 1.25L 1개</td>
+          <td>21,000원</td>
+          <td>09:30</td>
+          <td><span class="status_done">배달완료</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+</body>
+</html>

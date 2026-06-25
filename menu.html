@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>배통 - 메뉴 관리</title>
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { font-family: '맑은고딕', 'Malgun Gothic', sans-serif; background: #f8f8f8; min-height: 100vh; }
+
+nav {
+  background: white; border-bottom: 1px solid #eee;
+  padding: 0 40px; display: flex; align-items: center; height: 60px;
+}
+.nav_logo {
+  font-size: 22px; font-weight: bold;
+  background: linear-gradient(90deg, #f97316, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-right: 30px; text-decoration: none;
+}
+.nav_menu { display: flex; gap: 8px; flex: 1; }
+.nav_menu a {
+  padding: 8px 18px; border-radius: 20px; font-size: 14px;
+  text-decoration: none; color: #555;
+}
+.nav_menu a:hover { background: #f5f5f5; }
+.nav_menu a.active { background: #f0f0f0; font-weight: bold; color: #222; }
+.nav_store {
+  font-size: 14px; color: #555; padding: 8px 16px;
+  border: 1px solid #ddd; border-radius: 20px; text-decoration: none;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+.page_header {
+  display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px;
+}
+.page_header h1 { font-size: 24px; font-weight: bold; color: #222; }
+.page_header p { font-size: 13px; color: #888; margin-top: 6px; }
+.btn_add {
+  background: #f97316; color: white; border: none;
+  padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: bold;
+  cursor: pointer; font-family: '맑은고딕', sans-serif; white-space: nowrap;
+}
+
+/* 테이블 */
+.menu_table {
+  background: white; border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: #fafafa; border-bottom: 1px solid #eee; }
+thead th {
+  padding: 14px 20px; text-align: left;
+  font-size: 13px; color: #888; font-weight: normal;
+}
+tbody tr { border-bottom: 1px solid #f5f5f5; }
+tbody tr:last-child { border-bottom: none; }
+tbody td { padding: 16px 20px; font-size: 14px; color: #333; }
+
+/* 카테고리 배지 */
+.badge_cat {
+  background: #f0f0f0; color: #666; font-size: 12px;
+  padding: 4px 10px; border-radius: 10px;
+}
+
+/* 플랫폼 배지 */
+.platform_badges { display: flex; gap: 6px; }
+.badge_baemin { background: #2bbfbf; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+.badge_coupang { background: #8b5cf6; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+.badge_yogiyo { background: #f43f5e; color: white; font-size: 11px; padding: 4px 8px; border-radius: 8px; }
+
+/* 재고 배지 */
+.badge_sale { background: #e8faf0; color: #16a34a; font-size: 12px; padding: 4px 12px; border-radius: 10px; font-weight: bold; }
+.badge_out { background: #fef2f2; color: #f43f5e; font-size: 12px; padding: 4px 12px; border-radius: 10px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav_logo" href="login.html">배통</a>
+  <div class="nav_menu">
+    <a href="main.html">공지사항</a>
+    <a href="orders.html">주문관리</a>
+    <a href="menu.html" class="active">메뉴</a>
+    <a href="stats.html">통계</a>
+  </div>
+  <a class="nav_store" href="#">맛있는 치킨집</a>
+</nav>
+
+<main>
+  <div class="page_header">
+    <div>
+      <h1>메뉴 관리</h1>
+      <p>여러 배달 앱의 메뉴를 한 번에 관리하세요</p>
+    </div>
+    <button class="btn_add">+ 메뉴 추가</button>
+  </div>
+
+  <div class="menu_table">
+    <table>
+      <thead>
+        <tr>
+          <th>메뉴명</th>
+          <th>카테고리</th>
+          <th>가격</th>
+          <th>연동 플랫폼</th>
+          <th>재고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>후라이드 치킨</td>
+          <td><span class="badge_cat">치킨</span></td>
+          <td>17,000원</td>
+          <td>
+            <div class="platform_badges">
+              <span class="badge_baemin">배민</span>
+              <span class="badge_coupang">쿠팡</span>
+              <span class="badge_yogiyo">요기요</span>
+            </div>
+          </td>
+          <td><span class="badge_sale">판매중</span></td>
+        </tr>
+        <tr>
+          <td>양념 치킨</td>
+          <td><span class="badge_cat">치킨</span></td>
+          <td>18,000원</td>
+          <td>
+            <div class="platform_badges">
+              <span class="badge_baemin">배민</span>
+              <span class="badge_coupang">쿠팡</span>
+              <span class="badge_yogiyo">요기요</span>
+            </div>
+          </td>
+          <td><span class="badge_sale">판매중</span></td>
+        </tr>
+        <tr>
+          <td>반반 치킨</td>
+          <td><span class="badge_cat">치킨</span></td>
+          <td>19,000원</td>
+          <td>
+            <div class="platform_badges">
+              <span class="badge_baemin">배민</span>
+              <span class="badge_coupang">쿠팡</span>
+              <span class="badge_yogiyo">요기요</span>
+            </div>
+          </td>
+          <td><span class="badge_sale">판매중</span></td>
+        </tr>
+        <tr>
+          <td>치즈볼</td>
+          <td><span class="badge_cat">사이드</span></td>
+          <td>5,000원</td>
+          <td>
+            <div class="platform_badges">
+              <span class="badge_baemin">배민</span>
+              <span class="badge_coupang">쿠팡</span>
+              <span class="badge_yogiyo">요기요</span>
+            </div>
+          </td>
+          <td><span class="badge_sale">판매중</span></td>
+        </tr>
+        <tr>
+          <td>콜라 1.25L</td>
+          <td><span class="badge_cat">음료</span></td>
+          <td>2,000원</td>
+          <td>
+            <div class="platform_badges">
+              <span class="badge_baemin">배민</span>
+              <span class="badge_coupang">쿠팡</span>
+              <span class="badge_yogiyo">요기요</span>
+            </div>
+          </td>
+          <td><span class="badge_out">품절</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+</body>
+</html>

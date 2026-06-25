@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>배통 - 매출 통계</title>
+<style>
+* { padding: 0; margin: 0; box-sizing: border-box; }
+body { font-family: '맑은고딕', 'Malgun Gothic', sans-serif; background: #f8f8f8; min-height: 100vh; }
+
+nav {
+  background: white; border-bottom: 1px solid #eee;
+  padding: 0 40px; display: flex; align-items: center; height: 60px;
+}
+.nav_logo {
+  font-size: 22px; font-weight: bold;
+  background: linear-gradient(90deg, #f97316, #a855f7);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-right: 30px; text-decoration: none;
+}
+.nav_menu { display: flex; gap: 8px; flex: 1; }
+.nav_menu a {
+  padding: 8px 18px; border-radius: 20px; font-size: 14px;
+  text-decoration: none; color: #555;
+}
+.nav_menu a:hover { background: #f5f5f5; }
+.nav_menu a.active { background: #f0f0f0; font-weight: bold; color: #222; }
+.nav_store {
+  font-size: 14px; color: #555; padding: 8px 16px;
+  border: 1px solid #ddd; border-radius: 20px; text-decoration: none;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+main h1 { font-size: 24px; font-weight: bold; color: #222; margin-bottom: 24px; }
+
+/* 통계 카드 4개 */
+.stats_row { display: flex; gap: 16px; margin-bottom: 30px; }
+.stat_card {
+  flex: 1; background: white; border-radius: 14px;
+  padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.stat_card .label { font-size: 13px; color: #888; margin-bottom: 10px; }
+.stat_card .value { font-size: 22px; font-weight: bold; color: #222; }
+
+/* 하단 2열 */
+.bottom_row { display: flex; gap: 20px; }
+
+/* 인기 메뉴 TOP5 */
+.top5_box {
+  width: 260px; flex-shrink: 0;
+  background: white; border-radius: 14px; padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.top5_box h3 { font-size: 15px; font-weight: bold; margin-bottom: 16px; color: #222; }
+.top5_item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.rank {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #f0f0f0; color: #888; font-size: 13px; font-weight: bold;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.rank.r1 { background: #f97316; color: white; }
+.rank.r2 { background: #888; color: white; }
+.rank.r3 { background: #b45309; color: white; }
+.top5_name { font-size: 14px; color: #222; }
+.top5_count { font-size: 12px; color: #aaa; margin-top: 2px; }
+
+/* 최근 리뷰 */
+.review_box {
+  flex: 1; background: white; border-radius: 14px; padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.review_box h3 { font-size: 15px; font-weight: bold; margin-bottom: 16px; color: #222; }
+.review_item {
+  border: 1px solid #f0f0f0; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px;
+}
+.review_header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+}
+.reviewer { display: flex; align-items: center; gap: 10px; }
+.reviewer_icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: bold; color: white;
+}
+.ri_baemin { background: #2bbfbf; }
+.ri_coupang { background: #8b5cf6; }
+.ri_yogiyo { background: #f43f5e; }
+.reviewer_name { font-size: 14px; font-weight: bold; color: #222; }
+.reviewer_menu { font-size: 12px; color: #aaa; margin-top: 1px; }
+.review_time { font-size: 12px; color: #aaa; }
+.stars { color: #f97316; font-size: 14px; margin-bottom: 6px; }
+.review_text { font-size: 13px; color: #555; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav_logo" href="login.html">배통</a>
+  <div class="nav_menu">
+    <a href="main.html">공지사항</a>
+    <a href="orders.html">주문관리</a>
+    <a href="menu.html">메뉴</a>
+    <a href="stats.html" class="active">통계</a>
+  </div>
+  <a class="nav_store" href="#">맛있는 치킨집</a>
+</nav>
+
+<main>
+  <h1>매출 통계</h1>
+
+  <!-- 통계 카드 4개 -->
+  <div class="stats_row">
+    <div class="stat_card">
+      <div class="label">총 매출</div>
+      <div class="value">₩8,470,000</div>
+    </div>
+    <div class="stat_card">
+      <div class="label">총 주문</div>
+      <div class="value">423</div>
+    </div>
+    <div class="stat_card">
+      <div class="label">평균 주문금액</div>
+      <div class="value">₩20,024</div>
+    </div>
+    <div class="stat_card">
+      <div class="label">평균 평점</div>
+      <div class="value">4.8</div>
+    </div>
+  </div>
+
+  <div class="bottom_row">
+    <!-- 인기 메뉴 TOP5 -->
+    <div class="top5_box">
+      <h3>인기 메뉴 TOP 5</h3>
+      <div class="top5_item">
+        <div class="rank r1">1</div>
+        <div><div class="top5_name">후라이드 치킨</div><div class="top5_count">156개 판매</div></div>
+      </div>
+      <div class="top5_item">
+        <div class="rank r2">2</div>
+        <div><div class="top5_name">양념 치킨</div><div class="top5_count">142개 판매</div></div>
+      </div>
+      <div class="top5_item">
+        <div class="rank r3">3</div>
+        <div><div class="top5_name">반반 치킨</div><div class="top5_count">98개 판매</div></div>
+      </div>
+      <div class="top5_item">
+        <div class="rank">4</div>
+        <div><div class="top5_name">간장 치킨</div><div class="top5_count">76개 판매</div></div>
+      </div>
+      <div class="top5_item">
+        <div class="rank">5</div>
+        <div><div class="top5_name">치즈볼</div><div class="top5_count">203개 판매</div></div>
+      </div>
+    </div>
+
+    <!-- 최근 리뷰 -->
+    <div class="review_box">
+      <h3>최근 리뷰</h3>
+
+      <div class="review_item">
+        <div class="review_header">
+          <div class="reviewer">
+            <div class="reviewer_icon ri_baemin">배민</div>
+            <div>
+              <div class="reviewer_name">김**</div>
+              <div class="reviewer_menu">후라이드 치킨</div>
+            </div>
+          </div>
+          <div class="review_time">10분 전</div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review_text">치킨이 정말 바삭하고 맛있어요! 배달도 빨라서 따뜻하게 받았습니다.</div>
+      </div>
+
+      <div class="review_item">
+        <div class="review_header">
+          <div class="reviewer">
+            <div class="reviewer_icon ri_coupang">쿠팡</div>
+            <div>
+              <div class="reviewer_name">이**</div>
+              <div class="reviewer_menu">양념 치킨</div>
+            </div>
+          </div>
+          <div class="review_time">25분 전</div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review_text">양념이 달달하니 맛있네요. 치즈볼도 쫀득쫀득!</div>
+      </div>
+
+      <div class="review_item">
+        <div class="review_header">
+          <div class="reviewer">
+            <div class="reviewer_icon ri_yogiyo">요기요</div>
+            <div>
+              <div class="reviewer_name">박**</div>
+              <div class="reviewer_menu">반반 치킨</div>
+            </div>
+          </div>
+          <div class="review_time">1시간 전</div>
+        </div>
+        <div class="stars">★★★★☆</div>
+        <div class="review_text">맛은 좋은데 양이 조금 적은 것 같아요.</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
