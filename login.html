@@ -39,21 +39,25 @@ body {
   font-family: '맑은고딕', sans-serif;
 }
 .input_group input:focus { border-color: #a855f7; }
+.btn_link {
+  display: block; text-decoration: none; text-align: center;
+}
 #btn_login {
-  width: 100%; height: 48px; border: none; border-radius: 12px;
+  display: block; width: 100%; height: 48px; border: none; border-radius: 12px;
   background: linear-gradient(90deg, #f97316, #ec4899, #a855f7);
   color: white; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 8px;
   font-family: '맑은고딕', sans-serif;
 }
 #btn_signup {
-  width: 100%; height: 48px; border: 1.5px solid #ddd; border-radius: 12px;
+  display: block; width: 100%; height: 48px; border: 1.5px solid #ddd; border-radius: 12px;
   background: white; color: #555; font-size: 15px; cursor: pointer; margin-top: 10px;
   font-family: '맑은고딕', sans-serif;
 }
 #btn_connect {
-  width: 340px; height: 52px; border: none; border-radius: 14px;
+  display: block; width: 340px; height: 52px; border: none; border-radius: 14px;
   background: #2bbfbf; color: white; font-size: 16px; font-weight: bold;
-  cursor: pointer; font-family: '맑은고딕', sans-serif;
+  cursor: pointer; font-family: '맑은고딕', sans-serif; text-decoration: none;
+  line-height: 52px; text-align: center;
 }
 </style>
 </head>
@@ -72,9 +76,9 @@ body {
     <label>비밀번호</label>
     <input type="password">
   </div>
-  <button id="btn_login" onclick="location.href='main.html'">로그인→</button>
-  <button id="btn_signup">회원가입</button>
+  <a href="main.html" id="btn_login">로그인→</a>
+  <a href="#" id="btn_signup">회원가입</a>
 </div>
-<button id="btn_connect" onclick="location.href='account.html'">배달 앱 계정 연동하기</button>
+<a href="account.html" id="btn_connect">배달 앱 계정 연동하기</a>
 </body>
 </html>
